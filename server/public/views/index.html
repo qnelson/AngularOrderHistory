@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> </title>
+    <script src="../vendors/angular.min.js"></script>
+    <script src="../scripts/clientapp.js"></script>
+    <link rel="stylesheet" href="../styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="../styles/stylesheet.css" />
+
+</head>
+
+<body ng-app="myApp">
+    <h1>Customers</h1>
+    <div ng-controller="IndexController" ng-init='grabCustomers()'>
+        <div class='col-sm-1'></div>
+        <div class="col-sm-4">
+            <p ng-repeat='custinfo in data'>
+                {{custinfo.first_name}} {{custinfo.last_name}}
+
+                <button class="btn btn-info" ng-click="getCustomerInfo(custinfo.id)">Load Orders</button>
+            </p>
+        </div>
+
+        <div class="col-sm-6">
+            <p class="info" ng-repeat='orders in dataInfo'>Description: {{orders.description}}<br></br>Quantity: {{orders.quantity}}
+              <br><br/> Price: {{orders.unit_price}}<br></br>Date: {{orders.order_date}}<br></br>
+            </p>
+        </div>
+
+
+        <div class="col-sm-1">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
